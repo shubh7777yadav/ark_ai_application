@@ -5,7 +5,7 @@ import axios from '../config/axios'
 import { initializeSocket, receiveMessage, sendMessage } from '../config/socket'
 import Markdown from 'markdown-to-jsx'
 import hljs from 'highlight.js';
-import { getWebContainer } from '../config/webcontainer'
+import { getWebContainer } from '../config/webContainer'
 
 
 function SyntaxHighlightedCode(props) {
@@ -234,14 +234,17 @@ const Project = () => {
                         </button>
                     </header>
                     <div className="users flex flex-col gap-2 px-2 py-2 overflow-y-auto">
-                        {project.users && project.users.map(user => (
+                        {project.users && project.users.map(user => {
+                            
+                            return(
                             <div key={user._id} className="user cursor-pointer hover:bg-slate-100 p-2 flex gap-3 items-center rounded-lg transition">
                                 <div className="aspect-square rounded-full w-10 h-10 flex items-center justify-center bg-slate-600 text-white">
                                     <i className="ri-user-fill text-lg"></i>
                                 </div>
                                 <span className="font-medium text-base">{user.email}</span>
                             </div>
-                        ))}
+                        )
+                        })}
                     </div>
                 </div>
             </section>

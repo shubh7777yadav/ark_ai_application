@@ -27,5 +27,5 @@ export const sendMessage = (eventName, data) => {
     socketInstance.emit(eventName, data);
 }
 
-// Export socketInstance for cleanup
-export { socketInstance };
+//  Export socketInstance for cleanup
+// export { socketInstance };
